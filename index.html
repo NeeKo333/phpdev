@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="dropdown">
+        <div class="dropdown__toggle">
+          <svg class="dropdown__search-icon">
+            <use xlink:href="#search"></use>
+          </svg>
+          <div class="dropdown__text">ЖК, Округ, район, метро</div>
+          <div class="dropdown__count"></div>
+        </div>
+
+        <div class="dropdown__body">
+          <div class="dropdown__tabs">
+            <div class="dropdown__tab active" data-pane="pane1">Жк</div>
+            <div class="dropdown__tab" data-pane="pane2">Округ</div>
+            <div class="dropdown__tab" data-pane="pane3">Район</div>
+            <div class="dropdown__tab" data-pane="pane4">Метро</div>
+          </div>
+
+          <div class="dropdown__active-list"></div>
+
+          <div class="dropdown__tab-content">
+            <div class="dropdown__pane active" id="pane1">
+              <div class="dropdown__item">
+                <input type="checkbox" name="" id="test" />
+                <label for="test"
+                  >Академический
+                  <span class="checkmark"></span>
+                </label>
+              </div>
+
+              <div class="dropdown__item">
+                <input type="checkbox" name="" id="test2" />
+                <label for="test2"
+                  >Басманный
+                  <span class="checkmark"></span>
+                </label>
+              </div>
+
+              <div class="dropdown__item">
+                <input type="checkbox" name="" id="test3" />
+                <label for="test3"
+                  >Замоскворечье
+                  <span class="checkmark"></span>
+                </label>
+              </div>
+
+              <div class="dropdown__item">
+                <input type="checkbox" name="" id="test4" />
+                <label for="test4"
+                  >Измайлово
+                  <span class="checkmark"></span>
+                </label>
+              </div>
+
+              <div class="dropdown__item">
+                <input type="checkbox" name="" id="test5" />
+                <label for="test5"
+                  >Люблино
+                  <span class="checkmark"></span>
+                </label>
+              </div>
+
+              <div class="dropdown__item">
+                <input type="checkbox" name="" id="testе" />
+                <label for="testе"
+                  >Тест
+                  <span class="checkmark"></span>
+                </label>
+              </div>
+              <div class="dropdown__item">
+                <input type="checkbox" name="" id="testеe" />
+                <label for="testеe"
+                  >Тест2
+                  <span class="checkmark"></span>
+                </label>
+              </div>
+            </div>
+
+            <div class="dropdown__pane" id="pane2">
+              <div class="dropdown__item">
+                <input type="checkbox" name="" id="test6" />
+                <label for="test6"
+                  >Люблино 2
+                  <span class="checkmark"></span>
+                </label>
+              </div>
+
+              <div class="dropdown__item">
+                <input type="checkbox" name="" id="test7" />
+                <label for="test7"
+                  >Люблино 3
+                  <span class="checkmark"></span>
+                </label>
+              </div>
+
+              <div class="dropdown__item">
+                <input type="checkbox" name="" id="test8" />
+                <label for="test8"
+                  >Люблино 4
+                  <span class="checkmark"></span>
+                </label>
+              </div>
+            </div>
+
+            <div class="dropdown__pane" id="pane3">
+              <div class="dropdown__item">
+                <input type="checkbox" name="" id="test9" />
+                <label for="test9"
+                  >Люблино 5
+                  <span class="checkmark"></span>
+                </label>
+              </div>
+
+              <div class="dropdown__item">
+                <input type="checkbox" name="" id="test10" />
+                <label for="test10"
+                  >Люблино 6
+                  <span class="checkmark"></span>
+                </label>
+              </div>
+
+              <div class="dropdown__item">
+                <input type="checkbox" name="" id="test11" />
+                <label for="test11"
+                  >Люблино 7
+                  <span class="checkmark"></span>
+                </label>
+              </div>
+            </div>
+
+            <div class="dropdown__pane" id="pane4">
+              <div class="dropdown__item">
+                <input type="checkbox" name="" id="test12" />
+                <label for="test12"
+                  >Люблино 8
+                  <span class="checkmark"></span>
+                </label>
+              </div>
+
+              <div class="dropdown__item">
+                <input type="checkbox" name="" id="test13" />
+                <label for="test13"
+                  >Люблино 9
+                  <span class="checkmark"></span>
+                </label>
+              </div>
+
+              <div class="dropdown__item">
+                <input type="checkbox" name="" id="test14" />
+                <label for="test14"
+                  >Люблино 10
+                  <span class="checkmark"></span>
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <svg class="hidden_svg">
+      <symbol
+        id="search"
+        width="16"
+        height="16"
+        viewBox="0 0 16 16"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M7.5 13C10.5376 13 13 10.5376 13 7.5C13 4.46243 10.5376 2 7.5 2C4.46243 2 2 4.46243 2 7.5C2 10.5376 4.46243 13 7.5 13Z"
+          stroke="#080908"
+          stroke-width="2"
+          stroke-linecap="square"
+        />
+        <path
+          d="M12 12L14 14"
+          stroke="#080908"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </symbol>
+
+      <symbol
+        id="close"
+        width="16"
+        height="16"
+        viewBox="0 0 16 16"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M3.91235 4L11.9128 12.0004M12.0843 4L4.08392 12.0004"
+          stroke="#07000F"
+          stroke-opacity="0.4"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </symbol>
+    </svg>
+
+    <script src="./index.js" type="module"></script>
+  </body>
+</html>

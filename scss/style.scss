@@ -1,0 +1,288 @@
+@import "./normalize.scss";
+@import "./global.scss";
+@import "./funcs.scss";
+@import "./variables.scss";
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.dropdown {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: rem(8);
+  width: rem(320);
+  height: rem(500);
+
+  &.open {
+    .dropdown__toggle {
+      border: 1px solid var(--border-primary, rgba(7, 0, 15, 0.4));
+    }
+
+    .dropdown__body {
+      display: block;
+    }
+  }
+
+  &.filled {
+    .dropdown__toggle {
+      border: 1px solid var(--border-primary, rgba(7, 0, 15, 0.4));
+    }
+  }
+
+  &__toggle {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: rem(48);
+    padding: 0 rem(8) 0 rem(16);
+    border-radius: rem(12);
+    border: 1px solid var(--border-primary, rgba(7, 0, 15, 0.1));
+    background: var(--bg-neutral, rgba(2, 22, 45, 0.05));
+    cursor: pointer;
+
+    &:hover, &:active, &:focus {
+    border: 1px solid var(--border-primary, rgba(7, 0, 15, 0.4));
+    }
+  }
+
+  &__search-icon {
+    width: rem(16);
+    height: rem(16);
+  }
+
+  &__text {
+    padding-left: rem(8);
+    flex: 1 1 auto;
+    justify-self: flex-start;
+    color: var(--text-primary, #07000f);
+    font-family: Roboto Condensed;
+    font-size: rem(16);
+    font-style: normal;
+    font-weight: 500;
+    line-height: 100%; /* 16px */
+    letter-spacing: -0.32px;
+    text-transform: uppercase;
+  }
+
+  &__count {
+    width: rem(32);
+    height: rem(32);
+    background-color: #0067FE;
+    border-radius: 50%;
+    display: none;
+
+    color: var(--text-on-color, #FFF);
+    font-family: Roboto Condensed;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 100%; /* 16px */
+    letter-spacing: -0.32px;
+    text-transform: uppercase;
+
+    &.show {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  &__body {
+    position: relative;
+    display: none;
+    width: 100%;
+    border-radius: rem(12);
+    border: 1px solid var(--border-primary, rgba(7, 0, 15, 0.1));
+    background: var(--bg-primary, #fff);
+    box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.02),
+      0px 4px 32px 0px rgba(0, 0, 0, 0.02);
+
+    &::after {
+      position: absolute;
+      content: "";
+      width: calc(100% - rem(22));
+      height: rem(80);
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #fff 100%);
+      z-index: 3;
+      bottom: 0;
+      left: 5px;
+    }
+
+    &.end {
+      &::after {
+        display: none;
+      }
+    }
+  }
+
+  &__tabs {
+    padding: rem(12) rem(16);
+    display: flex;
+    gap: rem(16);
+    border-bottom: 1px solid var(--border-primary, rgba(7, 0, 15, 0.1));
+  }
+
+  &__active-list {
+    width: 100%;
+    height: 0;
+    display: flex;
+    gap: rem(15);
+    overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-width: none;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    &:not(:empty) {
+      padding: rem(12) rem(16);
+      height: rem(56);
+      border-bottom: 1px solid var(--border-primary, rgba(7, 0, 15, 0.1));
+    }
+  }
+
+  &__tab {
+    position: relative;
+    color: var(--text-tertiary, rgba(7, 0, 15, 0.4));
+    font-family: Roboto Condensed;
+    font-size: rem(16);
+    font-style: normal;
+    font-weight: 500;
+    line-height: 100%;
+    letter-spacing: -0.32px;
+    text-transform: uppercase;
+    cursor: pointer;
+
+    &-content {
+      max-height: rem(300);
+      overflow-y: auto;
+      padding: rem(8) 0;
+    }
+
+    &.active {
+      color: var(--text-primary, #07000f);
+
+      &:after {
+        position: absolute;
+        content: "";
+        width: 100%;
+        height: 1px;
+        background-color: var(--text-tertiary, rgba(7, 0, 15, 1));
+        bottom: rem(-13);
+        left: 0;
+      }
+    }
+  }
+
+  &__pane {
+    display: none;
+    &.active {
+      display: block;
+    }
+  }
+
+  &__item {
+    display: block;
+    position: relative;
+    padding: 0 rem(16);
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+    color: var(--text-primary, #07000f);
+    font-family: Arial;
+    font-size: rem(16);
+    font-style: normal;
+    font-weight: 400;
+    line-height: rem(48);
+
+    &:hover {
+      background: var(--bg-neutral, rgba(2, 22, 45, 0.05));
+      .checkmark {
+        background: var(--bg-neutral, rgba(2, 22, 45, 0.05));
+      }
+
+      input {
+        &:checked ~ label {
+          .checkmark {
+            background-color: #085EDB;
+          }
+        }
+      }
+      
+    }
+
+    label {
+      display: block;
+      cursor: pointer;
+      position: relative;
+      width: 100%;
+      z-index: 2;
+
+    }
+
+    input {
+      position: absolute;
+      opacity: 0;
+      cursor: pointer;
+      height: 0;
+      width: 0;
+      &:checked ~ label {
+        .checkmark {
+          background-color: #2196f3;
+          border: none;
+          &:after {
+            display: block;
+          }
+        }
+      }
+    }
+
+    .checkmark {
+      position: absolute;
+      top: 50%;
+      right: 0;
+      transform: translateY(-50%);
+      height: rem(32);
+      width: rem(32);
+      background-color: transparent;
+      border: 1px solid var(--border-primary, rgba(7, 0, 15, 0.10));
+      border-radius: 50%;
+
+      &::after {
+        position: absolute;
+        display: none;
+        content: url("../assets/Tick.svg");
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+      }
+    }
+  }
+}
+
+.active-list-item {
+  display: flex;
+  align-items: center;
+  gap: rem(5);
+  padding: rem(12);
+  font-family: Roboto Condensed;
+  font-size: rem(14);
+  font-style: normal;
+  font-weight: 500;
+  line-height: 120%;
+  letter-spacing: -0.28px;
+  text-transform: uppercase;
+  text-wrap: nowrap;
+  white-space: nowrap;
+  border-radius: rem(8);
+  border: 1px solid var(--border-primary, rgba(7, 0, 15, 0.1));
+  background: var(--bg-neutral, rgba(2, 22, 45, 0.05));
+}
