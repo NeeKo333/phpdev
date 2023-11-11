@@ -1,4 +1,8 @@
 export class CheckBoxes {
+  /**
+   * 
+   * @param {HTMLElement} dropdown 
+   */
   constructor(dropdown) {
     this.dropdown = dropdown;
     this.dropdownItems = this.dropdown.querySelectorAll(".dropdown__item");
@@ -20,7 +24,7 @@ export class CheckBoxes {
     const label = e.currentTarget.querySelector("label");
 
     if (checkBox.checked) {
-      this.addFilterToList({ text: label.textContent, parentId: checkBox.id });
+      this.addFilter({ text: label.textContent, parentId: checkBox.id });
     } else {
       this.removeFilter(checkBox.id);
     }
@@ -34,7 +38,7 @@ export class CheckBoxes {
     }
   }
 
-  addFilterToList(filter) {
+  addFilter(filter) {
     const newItem = this.buildActiveListNode(filter.text, filter.parentId);
     this.activeList.appendChild(newItem);
     this.activeListArray.push(filter.parentId);
@@ -47,6 +51,7 @@ export class CheckBoxes {
 
     targetNode.remove();
     checkBox.checked = false;
+
     this.activeListArray = this.activeListArray.filter(el => el !== id);
     this.updateCount();
   }
@@ -67,16 +72,13 @@ export class CheckBoxes {
 
   updateCount() {
     if(this.activeListArray.length) {
-      this.countContainer.classList.add('show')
-      this.dropdown.classList.add('filled')
+        this.countContainer.classList.add('show');
+        this.dropdown.classList.add('filled');
     } else {
-      this.countContainer.classList.remove('show');
-      this.dropdown.classList.remove('filled')
+        this.countContainer.classList.remove('show');
+        this.dropdown.classList.remove('filled');
     }
-     
-           
-          
-
+  
     this.countContainer.textContent = this.activeListArray.length
   }
 }

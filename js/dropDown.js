@@ -3,6 +3,10 @@ import { Tabs } from "./tabs.js";
 import Scroll from "./scroll.js";
 
 export class Dropdown {
+  /**
+   * 
+   * @param {HTMLElement} dropEl 
+   */
   constructor(dropEl) {
     this.dropdown = dropEl;
     this.toggleBtn = this.dropdown.querySelector(".dropdown__toggle");
@@ -21,7 +25,6 @@ export class Dropdown {
 
     this.dropdown.classList.toggle('open');
     Scroll
-          .horizontalScrollInit(".dropdown__active-list")
           .verticalScrollInit(".dropdown__tab-content");
   }
 }

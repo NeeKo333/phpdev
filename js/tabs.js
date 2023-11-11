@@ -1,6 +1,10 @@
 import Scroll from "./scroll.js";
 
 export class Tabs {
+  /**
+   * 
+   * @param {HTMLElement} tabsContainer 
+   */
   constructor(tabsContainer) {
     this.tabsContainer = tabsContainer;
     this.tabs = this.tabsContainer.querySelectorAll(".dropdown__tab");

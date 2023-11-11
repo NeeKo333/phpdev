@@ -58,6 +58,10 @@
   &__text {
     padding-left: rem(8);
     flex: 1 1 auto;
+    max-width: rem(230);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
     justify-self: flex-start;
     color: var(--text-primary, #07000f);
     font-family: Roboto Condensed;
@@ -124,6 +128,12 @@
     padding: rem(12) rem(16);
     display: flex;
     gap: rem(16);
+
+    overflow-x: auto;
+    scrollbar-width: none;
+    &::-webkit-scrollbar {
+      display: none;
+    }
     border-bottom: 1px solid var(--border-primary, rgba(7, 0, 15, 0.1));
   }
 
@@ -144,6 +154,30 @@
       height: rem(56);
       border-bottom: 1px solid var(--border-primary, rgba(7, 0, 15, 0.1));
     }
+
+    .active-list-item {
+      display: flex;
+      align-items: center;
+      gap: rem(5);
+      padding: rem(12);
+      font-family: Roboto Condensed;
+      font-size: rem(14);
+      font-style: normal;
+      font-weight: 500;
+      line-height: 120%;
+      letter-spacing: -0.28px;
+      text-transform: uppercase;
+      text-wrap: nowrap;
+      white-space: nowrap;
+      border-radius: rem(8);
+      border: 1px solid var(--border-primary, rgba(7, 0, 15, 0.1));
+      background: var(--bg-neutral, rgba(2, 22, 45, 0.05));
+    
+      img {
+        cursor: pointer;
+      }
+    }
+    
   }
 
   &__tab {
@@ -171,8 +205,8 @@
         position: absolute;
         content: "";
         width: 100%;
-        height: 1px;
-        background-color: var(--text-tertiary, rgba(7, 0, 15, 1));
+        height: rem(2);
+        background-color: black;
         bottom: rem(-13);
         left: 0;
       }
@@ -268,21 +302,3 @@
   }
 }
 
-.active-list-item {
-  display: flex;
-  align-items: center;
-  gap: rem(5);
-  padding: rem(12);
-  font-family: Roboto Condensed;
-  font-size: rem(14);
-  font-style: normal;
-  font-weight: 500;
-  line-height: 120%;
-  letter-spacing: -0.28px;
-  text-transform: uppercase;
-  text-wrap: nowrap;
-  white-space: nowrap;
-  border-radius: rem(8);
-  border: 1px solid var(--border-primary, rgba(7, 0, 15, 0.1));
-  background: var(--bg-neutral, rgba(2, 22, 45, 0.05));
-}

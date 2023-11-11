@@ -43,10 +43,12 @@ class Scroll {
     const scrollContainer = document.querySelector(scrollSelector);
     const body = scrollContainer.closest(".dropdown__body");
 
-    scrollContainer.scrollHeight === scrollContainer.clientHeight
-      ? body.classList.add("end")
-      : body.classList.remove("end");
-
+    if(scrollContainer.scrollHeight === scrollContainer.clientHeight) {
+        body.classList.add("end");
+    } else {
+        body.classList.remove("end");
+    }
+  
     const clb = () => {
       if (scrollContainer.scrollHeight < scrollContainer.scrollTop + scrollContainer.clientHeight + 20) {
         body.classList.add("end");
