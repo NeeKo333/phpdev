@@ -1,4 +1,4 @@
-import { Dropdown } from "./dropdown.js";
+import { Dropdown } from "./dropDown.js";
 
 export class Dropdowns {
   constructor(dropDownSelector) {
