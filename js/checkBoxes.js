@@ -5,14 +5,14 @@ export class CheckBoxes {
    */
   constructor(dropdown) {
     this.dropdown = dropdown;
-    this.dropdownItems = this.dropdown.querySelectorAll(".dropdown__item");
+    this.checkBoxes = this.dropdown.querySelectorAll(".dropdown__item input");
     this.activeList = this.dropdown.querySelector(".dropdown__active-list");
     this.activeListArray = [];
     this.countContainer = this.dropdown.querySelector(".dropdown__count");
 
     this.checkBoxHandler = this.checkBoxHandler.bind(this);
-    this.dropdownItems.forEach((item) => {
-      item.addEventListener("change", this.checkBoxHandler);
+    this.checkBoxes.forEach((checkBox) => {
+      checkBox.addEventListener("change", this.checkBoxHandler);
     });
 
     this.removeFilterFromList = this.removeFilterFromList.bind(this);
@@ -20,8 +20,8 @@ export class CheckBoxes {
   }
 
   checkBoxHandler(e) {
-    const checkBox = e.currentTarget.querySelector("input[type='checkbox']");
-    const label = e.currentTarget.querySelector("label");
+    const checkBox = e.currentTarget
+    const label = checkBox.parentNode.querySelector("label");
 
     if (checkBox.checked) {
       this.addFilter({ text: label.textContent, parentId: checkBox.id });

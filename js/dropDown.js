@@ -24,7 +24,6 @@ export class Dropdown {
     if (e.target.parentNode !== this.toggleBtn && e.target !== this.toggleBtn) return;
 
     this.dropdown.classList.toggle('open');
-    Scroll
-          .verticalScrollInit(".dropdown__tab-content");
+    Scroll.verticalScrollInit(".dropdown__tab-content");
   }
 }

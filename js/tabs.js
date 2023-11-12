@@ -8,8 +8,7 @@ export class Tabs {
   constructor(tabsContainer) {
     this.tabsContainer = tabsContainer;
     this.tabs = this.tabsContainer.querySelectorAll(".dropdown__tab");
-    this.tabsContent = document.querySelector(".dropdown__tab-content");
-    this.tabsPanes = this.tabsContent.querySelectorAll(".dropdown__pane");
+    this.tabsPanes = document.querySelectorAll(".dropdown__pane");
 
     this.switchTab = this.switchTab.bind(this);
     this.tabs.forEach((tab) => tab.addEventListener("click", this.switchTab));
@@ -25,6 +24,7 @@ export class Tabs {
     currentTab.classList.add("active");
     currentPane.classList.add("active");
 
+    // This solution is needed to reinit vertical scroll after tab's content switch.
     Scroll.verticalScrollInit(".dropdown__tab-content");
   }
 }
