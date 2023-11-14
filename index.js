@@ -1,5 +1,5 @@
 import { Dropdowns } from "./js/dropDowns.js";
-import Scroll from "./js/scroll.js";
+import Scroll from "./js/Scroll.js";
 
 window.addEventListener("DOMContentLoaded", () => {
   // This solution is needed to reset active checkboxes after reloading the page in Firefox.
