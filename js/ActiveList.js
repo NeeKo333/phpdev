@@ -10,7 +10,7 @@ export class ActiveList {
         this.activeList = activeListContainer;
         this.activeListArray = [];
         this.countContainer = countContainer;
-        this.template = document.querySelector('.template');
+        this.template = document.getElementById('template');
 
         this.removeFilterFromList = this.removeFilterFromList.bind(this);
         this.activeList.addEventListener("click", this.removeFilterFromList);
