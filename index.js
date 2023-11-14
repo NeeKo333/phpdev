@@ -1,4 +1,4 @@
-import { Dropdowns } from "./js/dropDowns.js";
+import { Dropdowns } from "./js/DropDowns.js";
 import Scroll from "./js/Scroll.js";
 
 window.addEventListener("DOMContentLoaded", () => {
