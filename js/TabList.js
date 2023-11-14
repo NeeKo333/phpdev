@@ -1,6 +1,6 @@
-import Scroll from "./scroll.js";
+import Scroll from "./Scroll.js";
 
-export class Tabs {
+export class TabList {
   /**
    * 
    * @param {HTMLElement} tabsContainer 

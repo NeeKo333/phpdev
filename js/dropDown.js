@@ -1,6 +1,7 @@
-import { CheckBoxes } from "./checkBoxes.js";
-import { Tabs } from "./tabs.js";
-import Scroll from "./scroll.js";
+import { CheckBoxList } from "./CheckBoxList.js";
+import { TabList } from "./TabList.js";
+import { ActiveList } from "./ActiveList.js";
+import Scroll from "./Scroll.js";
 
 export class Dropdown {
   /**
@@ -11,13 +12,18 @@ export class Dropdown {
     this.dropdown = dropEl;
     this.toggleBtn = this.dropdown.querySelector(".dropdown__toggle");
     this.dropdownContent = this.dropdown.querySelector(".dropdown__body");
+    this.countContainer = this.dropdown.querySelector('.dropdown__count');
     this.tabsContainer = this.dropdown.querySelector(".dropdown__tabs");
+    this.activeListContainer = this.dropdown.querySelector(".dropdown__active-list");
+    this.checkBoxes = this.dropdown.querySelectorAll(".dropdown__item input");
 
     this.clickHandler = this.clickHandler.bind(this);
     this.dropdown.addEventListener("click", this.clickHandler);
 
-    new CheckBoxes(this.dropdown);
-    new Tabs(this.tabsContainer);
+    new TabList(this.tabsContainer);
+    this.activeList = new ActiveList(this.dropdown, this.activeListContainer, this.countContainer);
+    new CheckBoxList(this.checkBoxes, this.activeList);
+   
   }
 
   clickHandler(e) {

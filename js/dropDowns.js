@@ -1,4 +1,4 @@
-import { Dropdown } from "./dropDown.js";
+import { Dropdown } from "./DropDown.js";
 
 // This class is needed for cases where you add more than one dropdown.
 export class Dropdowns {
