@@ -21,8 +21,8 @@ export class Dropdown {
     this.dropdown.addEventListener("click", this.clickHandler);
 
     new TabList(this.tabsContainer);
-    this.activeList = new ActiveList(this.dropdown, this.activeListContainer, this.countContainer);
-    new CheckBoxList(this.checkBoxes, this.activeList);
+    new ActiveList(this.dropdown, this.activeListContainer, this.countContainer);
+    new CheckBoxList(this.checkBoxes);
    
   }
 

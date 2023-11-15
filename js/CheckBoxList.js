@@ -1,13 +1,12 @@
+import emiter from "./EventEmiter.js";
 
 export class CheckBoxList {
   /**
    * 
    * @param {HTMLCollection} checkBoxes 
-   * @param {ActiveList} activeListInstance 
    */
-  constructor(checkBoxes, activeListInstance) {
+  constructor(checkBoxes) {
     this.checkBoxes = checkBoxes;
-    this.activeList = activeListInstance;
 
     this.checkBoxHandler = this.checkBoxHandler.bind(this);
     this.checkBoxes.forEach((checkBox) => {
@@ -21,9 +20,9 @@ export class CheckBoxList {
     const label = checkBox.parentNode.querySelector("label");
 
     if (checkBox.checked) {
-      this.activeList.addFilter({ text: label.textContent, parentId: checkBox.id });
+      emiter.dispatch('addFilter', { text: label.textContent, parentId: checkBox.id })
     } else {
-      this.activeList.removeFilter(checkBox.id);
+      emiter.dispatch('removeFilter', checkBox.id)
     }
   }
 }

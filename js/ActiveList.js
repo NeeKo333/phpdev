@@ -1,3 +1,5 @@
+import emiter from "./EventEmiter.js";
+
 export class ActiveList {
   /**
    * 
@@ -11,9 +13,12 @@ export class ActiveList {
         this.activeListArray = [];
         this.countContainer = countContainer;
         this.template = document.getElementById('template');
-
+        
         this.removeFilterFromList = this.removeFilterFromList.bind(this);
         this.activeList.addEventListener("click", this.removeFilterFromList);
+
+        emiter.sub('addFilter', this.addFilter.bind(this));
+        emiter.sub('removeFilter', this.removeFilter.bind(this));
     }
 
       removeFilterFromList(e) {
